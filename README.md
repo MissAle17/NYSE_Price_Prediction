@@ -18,5 +18,5 @@ The data set we will be working with is from the New York Stock Exchange (NYSE) 
 This project is being completed to statisfy the fourth project requirement for the Data Science bootcamp at the Flatiron School.  In General, we will follow the Data Science process, Cleaning, Exploring, and Analyzing iteratively until we arrive at a useable model.  
 
 Begining with exploration, there are a number of visualizations I created for exploratory purposes.  For example, based on the below graph, the cheapest stock in the S&P 500 had a low of 1.50 per share and the most expensive stock for this time frame was 1,600.93 per share. Other than volume, we can see how the other metrics might be a little skewed given the standard deviation is actually greater than the mean price. With one stock trading at 1.50 and another over 1,600, that's not really comparing apples to apples!
-[volume]("Price_Prediction/images/Abs_vol.png")
+![volume]("Price_Prediction/images/Abs_vol.png")
 
