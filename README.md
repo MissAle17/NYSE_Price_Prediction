@@ -12,13 +12,13 @@ If any type of model is going to be able to finally do it, I would be willing to
 
 The data set we will be working with is from the New York Stock Exchange (NYSE) and represent the historical prices and other fundamental data points of the S&P 500 from 2010 to the end of 2016. The original dataset can be found on Kaggle
 
-I chose to take an in depth look at one stock, Google ("GOOG"), comparing it to its competitiors, and ultimately using its prices and a the only input variable over time in my models. Ultimately, I ended up at a model that explained more than a whole percentage point of price variation. I was very pleased with the outcome as I expected that the prices would explain even less. There will be further discussion after my explanation of the models used.
+I chose to take an in depth look at one stock, Google ("GOOG"), comparing it to its competitors, and ultimately using its prices and a the only input variable over time in my models. Ultimately, I ended up at a model that explained more than a whole percentage point of price variation. I was very pleased with the outcome as I expected that the prices would explain even less. There will be further discussion after my explanation of the models used.
 
 ### The Process
 
-This project is being completed to statisfy the fourth project requirement for the Data Science bootcamp at the Flatiron School. In General, we will follow the Data Science process, Cleaning, Exploring, and Analyzing iteratively until we arrive at a useable model.
+This project is being completed to satisfy the fourth project requirement for the Data Science bootcamp at the Flatiron School. In General, we will follow the Data Science process, Cleaning, Exploring, and Analyzing iteratively until we arrive at a useable model.
 
-Begining with exploration, there are a number of visualizations I created for exploratory purposes. For example, based on the below graph, the cheapest stock in the S&P 500 had a low of 1.50 per share and the most expensive stock for this time frame was 1,600.93 per share. Other than volume, we can see how the other metrics might be a little skewed given the standard deviation is actually greater than the mean price. With one stock trading at 1.50 and another over 1,600, that's not really comparing apples to apples! 
+Beginning with exploration, there are a number of visualizations I created for exploratory purposes. For example, based on the below graph, the cheapest stock in the S&P 500 had a low of 1.50 per share and the most expensive stock for this time frame was 1,600.93 per share. Other than volume, we can see how the other metrics might be a little skewed given the standard deviation is actually greater than the mean price. With one stock trading at 1.50 and another over 1,600, that's not really comparing apples to apples! 
 
 ![volume](Price_Prediction/images/Abs_vol.png)
 
@@ -34,9 +34,11 @@ At this point in the analysis I turn to Google and the other tech giants, Google
 
 I did the same for Microsoft and Apple with the Google prices for the same day. Companies in the same sector, that are considered comparable, often react to the same news - including big changes to their competitors prices. Additionally, I reviewed these three companies' trade volume for the same period.
 
+![g_m_a](Price_Prediction/images/g_m_a.png)
+
 ![g_m_a](Price_Prediction/images/g_m_a_vol.png)
 
-Both of these visualizations clearly show that the vast majority of the stocks trade in similar volumes and then outside of that we have those mega-stocks with wild daily trading activity. The daily volume tells us a few things. Firstly the size of the company, those outliers are multinational conglomerates who have had very large issuances and likely also a number of stock splits. Big companies don't often fail quickly; they have also often acheived 'cash cow' status. These factors make them attractive to the risk-averse investor (like institutional pension funds). Depending on industry trade winds, like those our 'FAANG' companies (Facebook, Apple, Amazon, Netflix and Google) are facing now, it can also be a signal that these companies may be subject to anti-trust legal action. Really it's up to the industry analyst to know about these sorts of things before making any recomendations.
+Both of these visualizations clearly show that the vast majority of the stocks trade in similar volumes and then outside of that we have those mega-stocks with wild daily trading activity. The daily volume tells us a few things. Firstly the size of the company, those outliers are multinational conglomerates who have had very large issuances and likely also a number of stock splits. Big companies don't often fail quickly; they have also often achieved 'cash cow' status. These factors make them attractive to the risk-averse investor (like institutional pension funds). Depending on industry trade winds, like those our 'FAANG' companies (Facebook, Apple, Amazon, Netflix and Google) are facing now, it can also be a signal that these companies may be subject to anti-trust legal action. Really it's up to the industry analyst to know about these sorts of things before making any recommendations.
 
 ## Modeling using RNN
 
@@ -44,11 +46,12 @@ After creating a separate dataframe for only information on Google, I wanted to 
 
 ![google](Price_prediction/images/goog.png)
 
-I ran a nubmer of different Recurrent Neural Network algorithms.  I used a 80/20 split for the train and test size.  Overall, I ran 5 models with an RMSProp optimizer: Shallow LSTM, Deep 2 layer LSTM with dropout, Deep 2 layer GRU with dropout, Deep 4 layer GRU with dropout, and Deep 4 layer GRU with defined activation and dropout. 
+I ran several different Recurrent Neural Network algorithms. I used a 80/20 split for the train and test size. Overall, I ran 5 models with an RMSProp optimizer: Shallow LSTM, Deep 2 layer LSTM with dropout, Deep 2 layer GRU with dropout, Deep 4 layer GRU with dropout, and Deep 4 layer GRU with defined activation and dropout.
 
-The Final GRU model performed the best as described by MSE.  In terms of predicting stock prices, we didn't do a terrible job.  Given the small number of factors that we had available in our data, find a model with nearly a whole percentage point of exploratory power on training data is better than expected.  We should be careful however because our data is based only on Google stock data.  The more complex the model, with more information, the theorectically better of a model we can create. 
+The Final GRU model performed the best as described by MSE. In terms of predicting stock prices, we didn't do a terrible job. Given the small number of factors that we had available in our data, find a model with nearly a whole percentage point of exploratory power on training data is better than expected. We should be careful however because our data is based only on Google stock data. The more complex the model, with more information, the theoretically better of a model we can create.
 
 ![Gru](Price_Predicition/images/gru.png)
 
-## And if we had more time...
+### And if we had more time...
+
 An additional layer of validation could be added into the model by employing k-fold validation and running a greater number of epochs in the models. We could also explore the impact of the other FAANG companies on Google prices.
