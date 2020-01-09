@@ -34,6 +34,21 @@ At this point in the analysis I turn to Google and the other tech giants, Google
 
 I did the same for Microsoft and Apple with the Google prices for the same day. Companies in the same sector, that are considered comparable, often react to the same news - including big changes to their competitors prices. Additionally, I reviewed these three companies' trade volume for the same period.
 
-![g_m_a](Price_Prediction/images/g_m_a_volume.png)
+![g_m_a](Price_Prediction/images/g_m_a_vol.png)
 
 Both of these visualizations clearly show that the vast majority of the stocks trade in similar volumes and then outside of that we have those mega-stocks with wild daily trading activity. The daily volume tells us a few things. Firstly the size of the company, those outliers are multinational conglomerates who have had very large issuances and likely also a number of stock splits. Big companies don't often fail quickly; they have also often acheived 'cash cow' status. These factors make them attractive to the risk-averse investor (like institutional pension funds). Depending on industry trade winds, like those our 'FAANG' companies (Facebook, Apple, Amazon, Netflix and Google) are facing now, it can also be a signal that these companies may be subject to anti-trust legal action. Really it's up to the industry analyst to know about these sorts of things before making any recomendations.
+
+## Modeling using RNN
+
+After creating a separate dataframe for only information on Google, I wanted to look at all the price factors and created the below graph.  All information was scaled and normalized.
+
+![google](Price_prediction/images/goog.png)
+
+I ran a nubmer of different Recurrent Neural Network algorithms.  I used a 80/20 split for the train and test size.  Overall, I ran 5 models with an RMSProp optimizer: Shallow LSTM, Deep 2 layer LSTM with dropout, Deep 2 layer GRU with dropout, Deep 4 layer GRU with dropout, and Deep 4 layer GRU with defined activation and dropout. 
+
+The Final GRU model performed the best as described by MSE.  In terms of predicting stock prices, we didn't do a terrible job.  Given the small number of factors that we had available in our data, find a model with nearly a whole percentage point of exploratory power on training data is better than expected.  We should be careful however because our data is based only on Google stock data.  The more complex the model, with more information, the theorectically better of a model we can create. 
+
+![Gru](Price_Predicition/images/gru.png)
+
+## And if we had more time...
+An additional layer of validation could be added into the model by employing k-fold validation and running a greater number of epochs in the models. We could also explore the impact of the other FAANG companies on Google prices.
