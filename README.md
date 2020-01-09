@@ -10,7 +10,7 @@ If any type of model is going to be able to finally do it, I would be willing to
 
 ### The Data
 
-The data set we will be working with is from the New York Stock Exchange (NYSE) and represent the historical prices and other fundamental data points of the S&P 500 from 2010 to the end of 2016. The original dataset can be found on Kaggle
+The data set we will be working with is from the New York Stock Exchange (NYSE) and represent the historical prices and other fundamental data points of the S&P 500 from 2010 to the end of 2016. The original dataset can be found on [Kaggle](https://www.kaggle.com/dgawlik/nyse).
 
 I chose to take an in depth look at one stock, Google ("GOOG"), comparing it to its competitors, and ultimately using its prices and a the only input variable over time in my models. Ultimately, I ended up at a model that explained more than a whole percentage point of price variation. I was very pleased with the outcome as I expected that the prices would explain even less. There will be further discussion after my explanation of the models used.
 
