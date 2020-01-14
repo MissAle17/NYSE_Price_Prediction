@@ -44,13 +44,13 @@ Both of these visualizations clearly show that the vast majority of the stocks t
 
 After creating a separate dataframe for only information on Google, I wanted to look at all the price factors and created the below graph.  All information was scaled and normalized.
 
-![google](Price_prediction/images/goog.png)
+![google](Price_Prediction/images/goog.png)
 
 I ran several different Recurrent Neural Network algorithms. I used a 80/20 split for the train and test size. Overall, I ran 5 models with an RMSProp optimizer: Shallow LSTM, Deep 2 layer LSTM with dropout, Deep 2 layer GRU with dropout, Deep 4 layer GRU with dropout, and Deep 4 layer GRU with defined activation and dropout.
 
 The Final GRU model performed the best as described by MSE. In terms of predicting stock prices, we didn't do a terrible job. Given the small number of factors that we had available in our data, find a model with nearly a whole percentage point of exploratory power on training data is better than expected. We should be careful however because our data is based only on Google stock data. The more complex the model, with more information, the theoretically better of a model we can create.
 
-![Gru](Price_Predicition/images/gru.png)
+![Gru](Price_Prediction/images/gru.png)
 
 ### And if we had more time...
 
